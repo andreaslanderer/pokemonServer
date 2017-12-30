@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "docker-build": "docker build -t andreaslanderer/pokemon-api-server .",
+    "docker-push": "docker push andreaslanderer/pokemon-api-server"
   },
   "dependencies": {
     "body-parser": "^1.18.2",

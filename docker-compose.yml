@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+
+  mongodb:
+    image: mongo
+    restart: always
+    ports:
+      - '27017:27017'
+    volumes:
+      - /Users/andreaslanderer/dockerdata/mongo:/data/db
+
+  pokemon-api-server:
+    image: andreaslanderer/pokemon-api-server
+    restart: always
+    ports:
+      - '35000:3000'
+    depends_on:
+      - mongodb
+    links:
+      - mongodb
+    environment:
+      MONGO_DB: 'mongodb://mongodb:27017/pokemonDB'
